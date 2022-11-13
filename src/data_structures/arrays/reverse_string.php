@@ -23,12 +23,12 @@ $input = 'Hi My name is Andrei'; // 'ierdnA si eman yM Ih'
  */
 function reverse(string $string)
 {
-    $result = '';
+    $reversed = '';
     for ($i = strlen($string) - 1; $i >= 0; $i--) {
-        $result .= $string[$i]; // also substr()/mb_substr() can be useful here
+        $reversed .= $string[$i]; // also substr()/mb_substr() can be useful here
     }
 
-    return $result;
+    return $reversed;
 }
 
 
@@ -60,7 +60,7 @@ function reverseWithBuiltInMethod(string $string)
 function reverseNaiveSolution(string $string)
 {
     $words = explode(' ', $string);
-    $result = [];
+    $reversed = [];
 
     for ($i = count($words) - 1; $i >= 0; $i--) {
         $reversedWord = '';
@@ -69,10 +69,10 @@ function reverseNaiveSolution(string $string)
             $reversedWord .= $words[$i][$j]; // also substr()/mb_substr() can be useful here
         }
 
-        $result[$i] = $reversedWord; // or we can do strrev($words[$i])
+        $reversed[$i] = $reversedWord; // or we can do strrev($words[$i])
     }
 
-    return implode(' ', $result);
+    return implode(' ', $reversed);
 }
 
 
