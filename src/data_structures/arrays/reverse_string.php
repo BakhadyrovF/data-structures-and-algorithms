@@ -14,7 +14,7 @@ $input = 'Hi My name is Andrei'; // 'ierdnA si eman yM Ih'
  *
  * Steps:
  * 1. Initialize a new variable $reversed with empty string
- * 2. Iterate over each letter of string starting from the end and concat it to variable $reversed
+ * 2. Iterate through each letter of string starting from the end and concat it to variable $reversed
  * 3. Return $reversed result
  *
  * Time complexity is O(n)
@@ -47,8 +47,8 @@ function reverseWithBuiltInMethod(string $string)
  *
  * Steps:
  * 1. Take every word of string and add it to array $words (from string to array of words separated by space ' ')
- * 2. Iterate over every word of $words starting from the end and initialize variable with empty string $reversedWord
- * 3. Iterate over every letter of particular word $words[$i] starting from the end and concat it to variable $reversedWord
+ * 2. Iterate through every word of $words starting from the end and initialize variable with empty string $reversedWord
+ * 3. Iterate through every letter of particular word $words[$i] starting from the end and concat it to variable $reversedWord
  * 4. Add $reversedWord to the array $reversed in particular index $i
  * 5. Convert every element of array $words to string separated by space ' '
  * 6. return $reversed result
