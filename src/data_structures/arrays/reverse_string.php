@@ -13,10 +13,9 @@ $input = 'Hi My name is Andrei'; // 'ierdnA si eman yM Ih'
  * Solution without built-in methods - O(n)
  *
  * Steps:
- * 1. Initialize a new variable with empty string
- * 2. Iterate over each letter of string starting from the end and concat it to new variable
- * 3. Return result
- *
+ * 1. Initialize a new variable $reversed with empty string
+ * 2. Iterate over each letter of string starting from the end and concat it to variable $reversed
+ * 3. Return $reversed result
  *
  * Time complexity is O(n)
  * Space complexity is O(n)
@@ -47,12 +46,12 @@ function reverseWithBuiltInMethod(string $string)
  * Naive Solution - O(n^2)
  *
  * Steps:
- * 1. Take every word of string and add it to array (from string to array of words separated by space ' ')
- * 2. Iterate over every word of array starting from the end and initialize variable with empty string
- * 3. Iterate over every letter of particular word starting from the end and concat it to new variable
- * 4. Add reversed word to the empty array in particular index
- * 5. Convert every element of array to string separated by space ' '
- * 6. return result
+ * 1. Take every word of string and add it to array $words (from string to array of words separated by space ' ')
+ * 2. Iterate over every word of $words starting from the end and initialize variable with empty string $reversedWord
+ * 3. Iterate over every letter of particular word $words[$i] starting from the end and concat it to variable $reversedWord
+ * 4. Add $reversedWord to the array $reversed in particular index $i
+ * 5. Convert every element of array $words to string separated by space ' '
+ * 6. return $reversed result
  *
  * Time complexity is O(n^2)
  * Space complexity is O(n) or O(n^2) because we initialized new variable for each element of array
