@@ -41,7 +41,11 @@ class MyArray
      */
     public function set($index, $value)
     {
-        return $this->data[$index] = $value;
+        if (empty($this->data[$index])) {
+            $this->length++;
+        }
+
+        $this->data[$index] = $value;
     }
 
     /**
