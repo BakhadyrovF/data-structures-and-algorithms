@@ -87,12 +87,9 @@ final class SinglyLinkedList
 $singlyLinkedList = new SinglyLinkedList(10);
 $singlyLinkedList->append(5); // O(1)
 $singlyLinkedList->prepend(15); // O(1)
-//$singlyLinkedList->print(); // 15 -> 10 -> 5
+$singlyLinkedList->print(); // 15 -> 10 -> 5
 
 
 $singlyLinkedList->insert(7, 2); // O(n)
-//$singlyLinkedList->print(); // 15 -> 10 -> 7 -> 5
-
-$a = new stdClass();
-$a->some_property = 'some value';
+$singlyLinkedList->print(); // 15 -> 10 -> 7 -> 5
 
