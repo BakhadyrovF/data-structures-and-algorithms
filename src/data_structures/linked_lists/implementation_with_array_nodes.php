@@ -29,9 +29,6 @@ class LinkedListWithArrayNodes
 
     public function append($value)
     {
-        if (empty($tail)) {
-
-        }
 
         /** Create a $tail variable with new values */
         $tail = [
