@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../Node.php'; // Import Node class
+require_once __DIR__ . '/Node.php'; // Import Node class
 
 final class SinglyLinkedList
 {
@@ -31,13 +31,8 @@ final class SinglyLinkedList
         } else {
             // Else we traverse through each node until we reach $index - 1 node
             // it will be our previous node
-            $i = 0;
-            $previous = $this->head;
 
-            while ($i < $index - 1) {
-                $previous = $previous->getNext();
-                $i++;
-            }
+            $previous = $this->traverseTo($index - 1); // index - 1 because we need node that stays before given index
 
             $current = new Node($value, $previous->getNext());
             $previous->setNext($current);
@@ -65,6 +60,24 @@ final class SinglyLinkedList
         return true;
     }
 
+    public function remove($index)
+    {
+        if ($index > $this->length) {
+            return false;
+        }
+
+        if ($index === 0) { // We will remove head node
+            $this->head = $this->head->getNext();
+        } else {
+            $previousNode = $this->traverseTo($index - 1); // index - 1 because we need node that stays before given index
+            $previousNode->setNext($previousNode->getNext()->getNext()); // get next node of current node and assign to the previous node
+        }
+
+        $this->length--;
+        return true;
+
+    }
+
     public function length()
     {
         return $this->length;
@@ -82,6 +95,19 @@ final class SinglyLinkedList
             $node = $node->getNext();
         }
     }
+
+    protected function traverseTo($index) // 1 2 3 4
+    {
+        $node = $this->head;
+        $i = 0;
+
+        while ($i < $index) {
+            $node = $node->getNext();
+            $i++;
+        }
+
+        return $node;
+    }
 }
 
 $singlyLinkedList = new SinglyLinkedList(10);
@@ -89,7 +115,11 @@ $singlyLinkedList->append(5); // O(1)
 $singlyLinkedList->prepend(15); // O(1)
 $singlyLinkedList->print(); // 15 -> 10 -> 5
 
-
 $singlyLinkedList->insert(7, 2); // O(n)
 $singlyLinkedList->print(); // 15 -> 10 -> 7 -> 5
 
+$singlyLinkedList->remove(1); // O(n)
+$singlyLinkedList->print(); // 15 -> 7 -> 5
+
+$singlyLinkedList->remove(0); // O(1) - first node
+$singlyLinkedList->print(); // 7 -> 5
