@@ -161,6 +161,6 @@ $doublyLinkedList = new DoublyLinkedList(5);
 $doublyLinkedList->append(3); // O(1) (5 -> 3)
 $doublyLinkedList->prepend(10); // O(1) (10 -> 5 -> 3)
 $doublyLinkedList->insert(4, 2); // O(1) - iterations number - 0, because we took tail (10 -> 5 -> 4 -> 3)
-$doublyLinkedList->delete(2); // O(n) - iterations number - 1, because we started from tail (10 -> 5 -> 3)
+$doublyLinkedList->remove(2); // O(n) - iterations number - 1, because we started from tail (10 -> 5 -> 3)
 $doublyLinkedList->print(); // 10 -> 5 -> 3
 

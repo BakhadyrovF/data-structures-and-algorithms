@@ -16,6 +16,26 @@ final class SinglyLinkedList
         $this->length++;
     }
 
+    public function reverse()
+    {
+        $first = $this->head;
+        $second = $first->getNext();
+
+        while ($second) {
+            $third = $second->getNext();
+            $second->setNext($first);
+            $first = $second;
+            $second = $third;
+        }
+
+        $head = $this->head;
+        $tail = $this->tail;
+
+        $this->head = $tail;
+        $this->tail = $head;
+        $this->tail->setNext(null);
+    }
+
     public function insert($value, $index)
     {
         // If specified index is bigger than length of linked list, then return false
@@ -90,7 +110,7 @@ final class SinglyLinkedList
         while ($node) {
             echo $node->getNext()
                 ? $node->getValue() . ' -> '
-                : $node->getValue();
+                : $node->getValue() . PHP_EOL;
 
             $node = $node->getNext();
         }
@@ -113,13 +133,16 @@ final class SinglyLinkedList
 $singlyLinkedList = new SinglyLinkedList(10);
 $singlyLinkedList->append(5); // O(1)
 $singlyLinkedList->prepend(15); // O(1)
-$singlyLinkedList->print(); // 15 -> 10 -> 5
+//$singlyLinkedList->print(); // 15 -> 10 -> 5
 
 $singlyLinkedList->insert(7, 2); // O(n)
-$singlyLinkedList->print(); // 15 -> 10 -> 7 -> 5
+//$singlyLinkedList->print(); // 15 -> 10 -> 7 -> 5
+$singlyLinkedList->reverse();
+//var_dump($singlyLinkedList);
+$singlyLinkedList->print();
 
-$singlyLinkedList->remove(1); // O(n)
-$singlyLinkedList->print(); // 15 -> 7 -> 5
+//$singlyLinkedList->remove(1); // O(n)
+//$singlyLinkedList->print(); // 15 -> 7 -> 5
 
-$singlyLinkedList->remove(0); // O(1) - first node
-$singlyLinkedList->print(); // 7 -> 5
+//$singlyLinkedList->remove(0); // O(1) - first node
+//$singlyLinkedList->print(); // 7 -> 5
