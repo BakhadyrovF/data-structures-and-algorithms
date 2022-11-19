@@ -76,7 +76,7 @@ final class DoublyLinkedList
         return true;
     }
 
-    public function delete($index)
+    public function remove($index)
     {
         if ($index > $this->length - 1) {
             return false;
