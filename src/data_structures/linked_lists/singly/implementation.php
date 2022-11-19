@@ -133,16 +133,10 @@ final class SinglyLinkedList
 $singlyLinkedList = new SinglyLinkedList(10);
 $singlyLinkedList->append(5); // O(1)
 $singlyLinkedList->prepend(15); // O(1)
-//$singlyLinkedList->print(); // 15 -> 10 -> 5
+$singlyLinkedList->print(); // 15 -> 10 -> 5
 
 $singlyLinkedList->insert(7, 2); // O(n)
-//$singlyLinkedList->print(); // 15 -> 10 -> 7 -> 5
+$singlyLinkedList->print(); // 15 -> 10 -> 7 -> 5
+
 $singlyLinkedList->reverse();
-//var_dump($singlyLinkedList);
-$singlyLinkedList->print();
-
-//$singlyLinkedList->remove(1); // O(n)
-//$singlyLinkedList->print(); // 15 -> 7 -> 5
-
-//$singlyLinkedList->remove(0); // O(1) - first node
-//$singlyLinkedList->print(); // 7 -> 5
+$singlyLinkedList->print(); // 5 -> 7 -> 10 -> 15
