@@ -5,7 +5,7 @@ require_once __DIR__ . '/Node.php'; // Import Node class
 final class DoublyLinkedList
 {
     private ?Node $head;
-    private ?Node $tail;
+    public ?Node $tail;
     private int $length = 0;
 
     public function __construct($value)
@@ -106,6 +106,27 @@ final class DoublyLinkedList
         return true;
     }
 
+    // [1, 2, 3] => [3, 1, 2] => [2, 3, 1] => [1, 2, 3] = 3
+    // [1, 2] => [2, 1]
+    public function rotate()
+    {
+        $oldHead = $this->head;
+        $newHead = $this->tail;
+        $newTail = $this->tail->getPrevious();
+
+        $oldHead->setPrevious($newHead);
+        $newHead->setNext($oldHead);
+        $newHead->setPrevious(null);
+        $newTail->setNext(null);
+
+        if (!$newTail->getPrevious()) {
+            $newTail->setPrevious($newHead);
+        }
+
+        $this->head = $newHead;
+        $this->tail = $newTail;
+    }
+
     protected function traverseTo($index)
     {
         $middle = floor(($this->length - 1) / 2); // floor() rounds down -> 5 / 2 = 2
@@ -157,10 +178,10 @@ final class DoublyLinkedList
     }
 }
 
-$doublyLinkedList = new DoublyLinkedList(5);
-$doublyLinkedList->append(3); // O(1) (5 -> 3)
-$doublyLinkedList->prepend(10); // O(1) (10 -> 5 -> 3)
-$doublyLinkedList->insert(4, 2); // O(1) - iterations number - 0, because we took tail (10 -> 5 -> 4 -> 3)
-$doublyLinkedList->remove(2); // O(n) - iterations number - 1, because we started from tail (10 -> 5 -> 3)
-$doublyLinkedList->print(); // 10 -> 5 -> 3
+//$doublyLinkedList = new DoublyLinkedList(5);
+//$doublyLinkedList->append(3); // O(1) (5 -> 3)
+//$doublyLinkedList->prepend(10); // O(1) (10 -> 5 -> 3)
+//$doublyLinkedList->insert(4, 2); // O(1) - iterations number - 0, because we took tail (10 -> 5 -> 4 -> 3)
+//$doublyLinkedList->remove(2); // O(n) - iterations number - 1, because we started from tail (10 -> 5 -> 3)
+//$doublyLinkedList->print(); // 10 -> 5 -> 3
 
