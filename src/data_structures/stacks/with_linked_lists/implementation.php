@@ -24,9 +24,7 @@ class Stack
 
 	public function peek()
 	{		
-		if (!$this->isEmpty()) {
-			return $this->top->getValue();
-		}
+		return $this->top;
 	}
 
 	public function pop()
