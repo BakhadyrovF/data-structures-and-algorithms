@@ -99,7 +99,7 @@ class MyBinarySearchTree
 
 		if ($value === $node->getValue()) {
 			if ($node->getRight() === null || $node->getLeft() === null) {
-				// Have not children or have only 1, so we do not need to find inorder successor.
+				// Have no children or have only 1, so we do not need to find inorder successor.
 				$children = $node->getRight() ?? $node->getLeft();
 
 				// Determine in which side is this node
@@ -110,7 +110,7 @@ class MyBinarySearchTree
 				}
 			} else {
 
-				// Have two children and we need to find inorder successor.
+				// Have two children, and we need to find inorder successor.
 				$successor = $this->findSuccessor($node);
 
 				// Determine in which side is this node
@@ -144,7 +144,7 @@ class MyBinarySearchTree
 		$node = $parentNode->getLeft();
 
 		if ($node === null) {
-			// On the left we have not nodes, so our successor is node that stays in 1 step to the right
+			// On the left we have no nodes, so our successor is node that stays in 1 step to the right
 			$parentNode->setLeft($currentNode->getLeft());
 
 			return $parentNode;
