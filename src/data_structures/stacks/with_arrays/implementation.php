@@ -2,7 +2,7 @@
 
 
 
-class Stack
+class MyArrayStack
 {	
 	public array $elements = [];
 
@@ -17,7 +17,7 @@ class Stack
 			return;
 		}
 
-		unset($this->elements[count($this->elements) - 1]);
+		array_pop($this->elements);
 	}
 
 	public function peek()
@@ -30,7 +30,7 @@ class Stack
 	}
 }
 
-$stack = new Stack();
+$stack = new MyArrayStack();
 $stack->push('google');
 $stack->push('udemy'); 
 $stack->push('discord');
