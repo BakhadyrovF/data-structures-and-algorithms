@@ -6,6 +6,36 @@ class MyMaxHeap
 {
     private array $heap = [];
 
+    public function heapify(array $values)
+    {
+        for ($i = 0; $i < count($values); $i++) {
+            $this->insert($values[$i]);
+        }
+    }
+
+    public function extractMax()
+    {
+        // If Heap is empty, return null
+        if (count($this->heap) < 1) {
+            return null;
+        }
+
+        // Take the max value from Heap
+        $max = $this->heap[0];
+
+        // If we have no elements in Heap other than max, then our Heap will be new empty array
+        if (count($this->heap) === 1) {
+            $this->heap = [];
+
+            return $max;
+        }
+        // Otherwise, just call already implemented delete function to delete our max element from Heap
+        $this->delete(0);
+
+        // after delete and bubble down, we can return max
+        return $max;
+    }
+
     public function insert(int $value)
     {
         // Push value to the end of the Heap
@@ -18,7 +48,7 @@ class MyMaxHeap
             return true;
         }
 
-        return $this->heapifyUp(count($this->heap) - 1);
+        return $this->bubbleUp(count($this->heap) - 1);
     }
 
     public function delete(int $index)
@@ -42,7 +72,7 @@ class MyMaxHeap
         // remove last value of Heap
         unset($this->heap[$lastIndex]);
 
-        return $this->heapifyDown($index);
+        return $this->bubbleDown($index);
     }
 
     public function getHeap()
@@ -50,7 +80,7 @@ class MyMaxHeap
         return $this->heap;
     }
 
-    protected function heapifyUp($index)
+    protected function bubbleUp($index)
     {
         // Take parent index with its value, for the given index
         $value = $this->heap[$index];
@@ -63,14 +93,14 @@ class MyMaxHeap
             $this->heap[$index] = $parentValue;
 
             $index = $parentIndex;
-            return $this->heapifyUp($index);
+            return $this->bubbleUp($index);
         }
 
         // Otherwise our Heap is heapified, just return true
         return true;
     }
 
-    protected function heapifyDown($index)
+    protected function bubbleDown($index)
     {
         // take left and right child
         $value = $this->heap[$index];
@@ -93,7 +123,7 @@ class MyMaxHeap
             $this->heap[$maxIndex] = $value;
             $this->heap[$index] = $maxValue;
 
-            return $this->heapifyDown($maxIndex);
+            return $this->bubbleDown($maxIndex);
         }
 
         // Otherwise Heap is heapified, just return true
@@ -116,13 +146,10 @@ class MyMaxHeap
 }
 
 $myBinaryHeap = new MyMaxHeap();
-$myBinaryHeap->insert(10);
-$myBinaryHeap->insert(5);
-$myBinaryHeap->insert(7);
-$myBinaryHeap->delete(2);
-$myBinaryHeap->insert(6);
-$myBinaryHeap->insert(8);
-$myBinaryHeap->insert(9);
-$myBinaryHeap->insert(15);
-$myBinaryHeap->delete(1);
+$myBinaryHeap->heapify([33,20,27,45,13]);
+$myBinaryHeap->insert(20);
+$myBinaryHeap->insert(56);
+$myBinaryHeap->extractMax();
+$myBinaryHeap->extractMax();
+
 print_r($myBinaryHeap->getHeap());
