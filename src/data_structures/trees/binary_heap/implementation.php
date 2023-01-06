@@ -39,9 +39,7 @@ class MyMaxHeap
     public function insert(int $value)
     {
         // Push value to the end of the Heap
-        // We are not using keys (priority keys), instead we are using array indices so,
-        // for the Heap to work correctly, we must not allow holes in our array
-        $this->heap[count($this->heap)] = $value;
+        $this->heap[] = $value;
 
         // If pushed value is the root, then no heapify needed
         if (count($this->heap) === 1) {
@@ -61,16 +59,13 @@ class MyMaxHeap
 
         // if value that should be deleted is last value of the Heap, then just remove it, no heapify needed
         if ($index === $lastIndex) {
-            unset($this->heap[$lastIndex]);
+            array_pop($this->heap);
 
             return true;
         }
 
-        // swap value that should be deleted with last value of Heap
-        $this->heap[$index] = $this->heap[$lastIndex];
-
-        // remove last value of Heap
-        unset($this->heap[$lastIndex]);
+        // swap value that should be deleted with last value of Heap, also remove this last value
+        $this->heap[$index] = array_pop($this->heap);
 
         return $this->bubbleDown($index);
     }
