@@ -125,5 +125,4 @@ $myBinaryHeap->insert(8);
 $myBinaryHeap->insert(9);
 $myBinaryHeap->insert(15);
 $myBinaryHeap->delete(1);
-
 print_r($myBinaryHeap->getHeap());
