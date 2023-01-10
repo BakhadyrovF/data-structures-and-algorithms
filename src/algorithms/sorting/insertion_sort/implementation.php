@@ -1,6 +1,6 @@
 <?php
 
-$numbers = range(50, 1);
+$numbers = [2, 5, 4, 3, 2, 6, 3, 5, 1, 4, 2, 6];
 
 
 // Time complexity - O(n^2)
@@ -12,8 +12,8 @@ function myInsertionSort(array $array)
             // swap
             array_unshift($array, array_splice($array, $i, 1)[0]);
         } else {
-            for ($j = 1; $j < $i; $j++) {
-                if ($array[$i] < $array[$j]) {
+            for ($j = $i - 1; $j > 0; $j--) {
+                if ($array[$i] < $array[$j] && $array[$i] >= $array[$j - 1]) {
                     // simple adding element at specific index and shift rest of the elements with built-in function
                     array_splice($array, $j, 0, array_splice($array, $i, 1)[0]);
                 }
