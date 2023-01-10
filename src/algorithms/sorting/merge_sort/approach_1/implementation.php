@@ -3,6 +3,10 @@
 
 $numbers = [9, 7, 4, 1, 5, 6, 2, 10, 3, 8];
 
+/**
+ * Time complexity - O(n log n)
+ * Space complexity - O(n)
+ */
 class MyMergeSort
 {
     public function sort(array $array): array
