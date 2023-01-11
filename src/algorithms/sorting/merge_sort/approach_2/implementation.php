@@ -16,7 +16,7 @@ class MyMergeSort
 
     public function __construct(array $array)
     {
-        // initialize private property, so we can access it from anywhere in our class
+        // initialize private property, so we can access it from everywhere in our class
         $this->array = $array;
     }
 
