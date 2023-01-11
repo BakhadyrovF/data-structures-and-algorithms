@@ -1,10 +1,7 @@
 <?php
 
 
-
-
 /**
- *
  * Wrote this second approach from scratch for better understanding how recursion and merge-sort work.
  *
  * Time Complexity - O(n log n)
