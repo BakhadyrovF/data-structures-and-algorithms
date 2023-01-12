@@ -2,8 +2,11 @@
 
 /**
  * Quick Sort
- * There are many different implementations of this Algorithm.
- * Wrote this implementation without learning any of them, so it might not be the best
+ * There are many different implementations of this Algorithm,
+ * wrote this implementation without learning any of them, so it might not be the best.
+ * Again, here I use last element of range as a pivot, and here is the problem,
+ * It will cause O(n^2) for nearly sorted or descending sorted arrays, so instead of taking last element as a pivot,
+ * we should use MO3.
  *
  * Time Complexity - (n log n)
  * Space Complexity - O(log n)
