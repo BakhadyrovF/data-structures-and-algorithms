@@ -11,8 +11,8 @@ class MyMaxHeap
         $this->heap = $values;
         $n = count($values);
 
+        // take parent of the leaf node and start bubbling down in reverse order (leafs have no children, so we do not need to heapify it)
         for ($i = floor($n / 2 - 1); $i >= 0; $i--) {
-            echo 'heapifiable - ' . $i . PHP_EOL;
             $this->bubbleDown($i);
         }
 
