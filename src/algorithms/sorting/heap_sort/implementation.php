@@ -5,7 +5,7 @@
  * Heap Sort
  * Implemented only with knowledge of how the algorithm works (without learning other implementation),
  * so it might not be the best implementation.
- * Note: heapify(), bubbleUp(), bubbleDown() are the methods of the Binary Heap data structure.
+ * Note: heapify(), bubbleDown() are the methods of the Binary Heap data structure.
  *
  * Time Complexity - O(n log n)
  * Space Complexity - O(1)
@@ -16,7 +16,8 @@ class MyHeapSort
 
     public function __construct(array $array)
     {
-        $this->heapify($array);
+        $this->heap = $array;
+        $this->heapify();
     }
 
     public function sort(): array
@@ -37,34 +38,11 @@ class MyHeapSort
         return $this->heap;
     }
 
-    protected function heapify(array $array): void
+    protected function heapify(): void
     {
-        for ($i = 0; $i < count($array); $i++) {
-            // push to the heap
-            $this->heap[] = $array[$i];
-
-            // bubble up newly added element
-            $this->bubbleUp($i);
-        }
-    }
-
-    protected function bubbleUp(int $index): void
-    {
-        if ($index === 0) {
-            return;
-        }
-
-        $parentIndex = floor(($index - 1) / 2);
-
-        // if current node is greater than its parent, we should swap them
-        if ($this->heap[$parentIndex] < $this->heap[$index]) {
-            //swap
-            $temp = $this->heap[$parentIndex];
-            $this->heap[$parentIndex] = $this->heap[$index];
-            $this->heap[$index] = $temp;
-
-            // follow the steps above until the heap is heapified
-            $this->bubbleUp($parentIndex);
+        $n = count($this->heap);
+        for ($i = $n / 2 - 1; $i >= 0; $i--) {
+            $this->bubbleDown($i, $n - 1);
         }
     }
 
