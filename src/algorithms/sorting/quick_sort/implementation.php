@@ -2,8 +2,8 @@
 
 /**
  * Quick Sort
- * There are many different implementations of this Algorithm,
- * wrote this implementation without learning any of them, so it might not be the best.
+ * Implemented only with knowledge of how the algorithm works (without learning other implementation),
+ * so it might not be the best implementation.
  * Again, here I use last element of range as a pivot, and here is the problem,
  * It will cause O(n^2) for nearly sorted or descending sorted arrays, so instead of taking last element as a pivot,
  * we should use MO3.
@@ -81,7 +81,6 @@ class MyQuickSort
         $this->quickSort($pivot + 1, $last);
     }
 }
-
 
 $myQuickSort = new MyQuickSort([7, 1, 9 ,5, 10, 4, 8, 2, 6, 3]);
 print_r($myQuickSort->sort()); // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
