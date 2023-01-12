@@ -8,9 +8,14 @@ class MyMaxHeap
 
     public function heapify(array $values)
     {
-        for ($i = 0; $i < count($values); $i++) {
-            $this->insert($values[$i]);
+        $this->heap = $values;
+        $n = count($values);
+
+        for ($i = floor($n / 2 - 1); $i >= 0; $i--) {
+            echo 'heapifiable - ' . $i . PHP_EOL;
+            $this->bubbleDown($i);
         }
+
     }
 
     public function extractMax()
@@ -141,10 +146,9 @@ class MyMaxHeap
 }
 
 $myBinaryHeap = new MyMaxHeap();
-$myBinaryHeap->heapify([33,20,27,45,13]);
+$myBinaryHeap->heapify([33, 20, 27, 45, 13, 10, 77, 42, 40]);
 $myBinaryHeap->insert(20);
 $myBinaryHeap->insert(56);
 $myBinaryHeap->extractMax();
 $myBinaryHeap->extractMax();
-
 print_r($myBinaryHeap->getHeap());
