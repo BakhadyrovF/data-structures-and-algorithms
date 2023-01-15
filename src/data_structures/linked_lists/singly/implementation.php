@@ -4,7 +4,7 @@ require_once __DIR__ . '/Node.php'; // Import Node class
 
 final class SinglyLinkedList
 {
-    private ?Node $head;
+    public ?Node $head;
     private ?Node $tail;
 
     private int $length = 0;
