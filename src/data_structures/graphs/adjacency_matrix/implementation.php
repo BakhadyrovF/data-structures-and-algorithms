@@ -35,6 +35,19 @@ class MyAdjacencyMatrix
         $this->matrix[$y][$x] = 0;
     }
 
+    public function edgesCount()
+    {
+        $counter = 0;
+        for ($i = 0; $i < count($this->matrix); $i++) {
+            for ($j = 0; $j < count($this->matrix); $j++) {
+                $counter += $this->matrix[$i][$j];
+            }
+        }
+
+        // our graph is undirected so, we should divide total number of edges by 2
+        return $counter / 2;
+    }
+
     public function addVertex()
     {
         // adding a new row for new vertex
@@ -93,7 +106,8 @@ $myAdjacencyMatrix->addEdge(0, 1);
 $myAdjacencyMatrix->addEdge(0, 2);
 $myAdjacencyMatrix->addEdge(0, 3);
 $myAdjacencyMatrix->addEdge(1, 2);
-//$myAdjacencyMatrix->printMatrix();
+$myAdjacencyMatrix->printMatrix();
+$myAdjacencyMatrix->edgesCount(); // 4
 /**
  * Visualization of matrix above:
  *       0 -- 3
@@ -102,9 +116,9 @@ $myAdjacencyMatrix->addEdge(1, 2);
  */
 
 
-$myAdjacencyMatrix->addVertex();
-$myAdjacencyMatrix->removeVertex(4);
-print_r($myAdjacencyMatrix->matrix);
+//$myAdjacencyMatrix->addVertex();
+//$myAdjacencyMatrix->removeVertex(4);
+//print_r($myAdjacencyMatrix->matrix);
 //$myAdjacencyMatrix->addEdge(4, 0);
 //$myAdjacencyMatrix->addEdge(4, 2);
 //$myAdjacencyMatrix->addEdge(4, 3);
