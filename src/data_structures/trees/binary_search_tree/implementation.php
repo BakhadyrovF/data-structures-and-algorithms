@@ -208,8 +208,8 @@ $myBinarySearchTree->insert(18);
 $myBinarySearchTree->remove(21);
 $myBinarySearchTree->remove(9);
 
-header('Content-Type: application/json');
-echo $myBinarySearchTree->toJson();
+//header('Content-Type: application/json');
+//echo $myBinarySearchTree->toJson();
 
 
 
