@@ -8,8 +8,7 @@ class MyBreadthFirstSearch
     public function search(Node $node)
     {
         $result = [];
-        $queue = [];
-        $queue[] = $node;
+        $queue = [$node];
 
         while (!empty($queue)) {
             $currentNode = array_shift($queue);
@@ -30,8 +29,7 @@ class MyBreadthFirstSearch
     public function searchRecursively(Node $node)
     {
         $result = [];
-        $queue = [];
-        $queue[] = $node;
+        $queue = [$node];
 
         $this->exploreTheNode($queue, $result);
 
